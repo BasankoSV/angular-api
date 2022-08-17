@@ -2,15 +2,21 @@
 
 <button (click)="getData()">Получить данные с сервера</button>
 
-<div *ngIf="productsService.getAll(); else nodata">
+<div *ngIf="products; else nodata">
 
-  <div *ngFor="let product of products">
-    {{ product.id }}
-    {{ product.title }}
+  <div *ngFor="let product of products; let idx=index">
+
+    <ul>
+      <li>{{ idx + 1 }}. {{ product.title }}</li>
+    </ul>
+
+
   </div>
 
 </div>
 
-<ng-template #nodata>Нет данных</ng-template>
+<ng-template #nodata>
+  <p>Нет данных</p>
+</ng-template>
 
 <!--<app-products [products]="products"></app-products>-->

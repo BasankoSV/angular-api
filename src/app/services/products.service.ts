@@ -16,7 +16,7 @@ export class ProductsService {
 
   getAll():Observable<IProduct[]> {
     return this.http.get<IProduct[]>('https://fakestoreapi.com/products', {
-      params: new HttpParams().append('limit', 5)
+      params: new HttpParams().append('limit', 0)
     })
       // .pipe(
       // delay(2000), // ставим задержку, чтоб увидеть сообщение о загрузке данных
