@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ProductsService} from "./services/products.service";
 import {IProduct} from "./services/product";
 
@@ -9,10 +9,12 @@ import {IProduct} from "./services/product";
 })
 export class AppComponent {
 
-  constructor(
-    private productsService: ProductsService
-  ) { }
+  constructor(public productsService: ProductsService) { }
 
-  products: IProduct[] =[]
+  products: IProduct[]
 
+  getData() {
+    this.productsService.getAll()
+      .subscribe(products => this.products = products)
+  }
 }

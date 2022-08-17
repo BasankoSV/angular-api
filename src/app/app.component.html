@@ -1,2 +1,16 @@
 <h1>Angular API</h1>
-<app-products></app-products>
+
+<button (click)="getData()">Получить данные с сервера</button>
+
+<div *ngIf="productsService.getAll(); else nodata">
+
+  <div *ngFor="let product of products">
+    {{ product.id }}
+    {{ product.title }}
+  </div>
+
+</div>
+
+<ng-template #nodata>Нет данных</ng-template>
+
+<!--<app-products [products]="products"></app-products>-->
