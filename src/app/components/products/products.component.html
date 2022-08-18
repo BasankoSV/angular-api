@@ -1,4 +1,20 @@
-<p>products works!</p>
-<div *ngFor="let product of products">
-  <app-product [product]="products"></app-product>
+<div>
+
+  <button style="line-height: 1.5rem" (click)="getData()">Получить данные с сервера</button>
+
+  <p *ngIf="loading">Загрузка...</p>
+
+  <div
+       style="margin: 2rem 0"
+  >
+
+    <div *ngFor="let product of products; let idx=index">
+
+      <ul style="padding: 0">
+        <app-product [product]="product" [idx]="idx"></app-product>
+      </ul>
+
+    </div>
+
+  </div>
 </div>

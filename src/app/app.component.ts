@@ -9,12 +9,6 @@ import {IProduct} from "./services/product";
 })
 export class AppComponent {
 
-  constructor(public productsService: ProductsService) { }
+  constructor() { }
 
-  products: IProduct[]
-
-  getData() {
-    this.productsService.getAll()
-      .subscribe(products => this.products = products)
-  }
 }

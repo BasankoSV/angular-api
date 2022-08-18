@@ -1,23 +1,2 @@
 <h1>Angular API</h1>
-
-<button (click)="getData()">Получить данные с сервера</button>
-
-<div *ngIf="products; else nodata"
-  style="margin: 2rem 0"
->
-
-  <div *ngFor="let product of products; let idx=index">
-
-    <ul>
-      <li>{{ idx + 1 }}. {{ product.title }}</li>
-    </ul>
-
-  </div>
-
-</div>
-
-<ng-template #nodata>
-  <p>Нет данных...</p>
-</ng-template>
-
-<!--<app-products [products]="products"></app-products>-->
+<app-products></app-products>

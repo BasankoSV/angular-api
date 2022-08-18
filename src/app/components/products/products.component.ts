@@ -1,18 +1,27 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {IProduct} from "../../services/product";
+import {ProductsService} from "../../services/products.service";
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']
 })
-export class ProductsComponent implements OnInit {
+export class ProductsComponent {
 
-  constructor() { }
+  products: IProduct[]
+  loading = false
 
-  @Input() products: IProduct
+  constructor(public productsService: ProductsService) { }
 
-  ngOnInit(): void {
+
+  getData() {
+    this.loading = true
+    this.productsService.getAll()
+      .subscribe(products => {
+        this.products = products
+        this.loading = false
+      })
   }
 
 }
